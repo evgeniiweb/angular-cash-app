@@ -4,7 +4,6 @@ interface NavigationLink {
   route: string;
   icon: string;
   title: string;
-  isLogged?: boolean;
 }
 
 @Component({

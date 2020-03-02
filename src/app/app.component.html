@@ -10,7 +10,6 @@
     <mat-nav-list>
       <a *ngFor="let link of links;"
          [routerLink]="link.route"
-         [style.display]="link.isLogged ? 'none' : 'block'"
          routerLinkActive="active"
          (click)="drawer.close()"
          mat-list-item>
