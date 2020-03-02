@@ -1,0 +1,38 @@
+html, body, app-root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url(assets/images/1.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-drawer-container {
+  flex: 1;
+  background-color: transparent !important;
+}
+
+.mat-drawer-content {
+  padding: 16px;
+}
+
+.mat-list-item {
+  &.active {
+    background-color: #cccccc;
+  }
+
+  &.inactive {
+    opacity: .3;
+    pointer-events: none;
+  }
+}
