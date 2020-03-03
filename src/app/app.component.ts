@@ -16,7 +16,7 @@ export class AppComponent {
 
   links: NavigationLink[] = [
     {route: '/dashboard', icon: 'dashboard', title: 'Dashboard'},
-    {route: '/income/list', icon: 'attach_money', title: 'Income'},
+    {route: '/income', icon: 'attach_money', title: 'Income'},
     // {route: '/expense/list', icon: 'money_off', title: 'Expense'}, Todo: add expense component
     {route: '/about', icon: 'info', title: 'About'}
   ];

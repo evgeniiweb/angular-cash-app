@@ -1,7 +1,8 @@
 <mat-card>
   <mat-card-content>
     <app-income-form
-    (updateEvent)="onCreate($event)"
+      [income]="income$ | async"
+      (updateEvent)="onUpdate($event)"
     ></app-income-form>
 
   </mat-card-content>
