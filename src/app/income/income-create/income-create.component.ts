@@ -1,6 +1,7 @@
-import {Component, } from '@angular/core';
-import {IncomeService} from '../income.service';
-import {Income} from '../income.interface';
+import { Component } from '@angular/core';
+import { IncomeService } from '../income.service';
+import { Income } from '../income.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-income-create',
@@ -8,14 +9,11 @@ import {Income} from '../income.interface';
   styleUrls: ['./income-create.component.scss']
 })
 export class IncomeCreateComponent {
-
-  constructor(
-    private incomeService: IncomeService,
-  ) {
-  }
+  constructor(private router: Router, private incomeService: IncomeService) {}
 
   onCreate(income: Income) {
-    this.incomeService.create(income);
+    this.incomeService
+      .create(income)
+      .subscribe(() => this.router.navigate(['/income']));
   }
-
 }
