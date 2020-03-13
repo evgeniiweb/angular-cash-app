@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {IncomeStoreService} from '../income-store.service';
 import {Router} from '@angular/router';
-import {Observable, of, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
+import {IncomeStore} from '../income-store';
 import {Income} from '../income.interface';
-import {switchMap, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-income-list',
@@ -11,6 +10,7 @@ import {switchMap, takeUntil} from 'rxjs/operators';
   styleUrls: ['./income-list.component.scss']
 })
 export class IncomeListComponent {
+  income$: Observable<Income[]>;
   displayedColumns: string[] = [
     'position',
     'category',
@@ -20,16 +20,11 @@ export class IncomeListComponent {
     'actions'
   ];
 
-  private readonly unsubscribe$ = new Subject<Income[]>();
-  income$: Observable<Income[]>;
-
   constructor(
     private router: Router,
-    private incomeService: IncomeStoreService
+    private store: IncomeStore
   ) {
-    this.income$ = of([]).pipe(
-      switchMap(() => this.incomeService.getAllIncome())
-    );
+    this.income$ = store.getAllIncome();
   }
 
   incomeDetails(id: number) {
@@ -40,10 +35,7 @@ export class IncomeListComponent {
     this.router.navigate(['/income', id, 'edit']);
   }
 
-  incomeDelete(id: number) {
-    this.incomeService.deleteIncome(id).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(() => {
-    });
+  async incomeDelete(id: number) {
+    await this.store.deleteIncome(id);
   }
 }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IncomeStoreService } from '../income-store.service';
-import { Income } from '../income.interface';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {IncomeStore} from '../income-store';
+import {Income} from '../income.interface';
 
 @Component({
   selector: 'app-income-create',
@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./income-create.component.scss']
 })
 export class IncomeCreateComponent {
-  constructor(private router: Router, private incomeService: IncomeStoreService) {}
+  constructor(
+    private router: Router,
+    private store: IncomeStore
+  ) {
+  }
 
-  onCreate(income: Income) {
-    this.incomeService
-      .createIncome(income)
-      .subscribe(() => this.router.navigate(['/income']));
+  async onCreate(income: Income) {
+    await this.store.createIncome(income);
+    this.router.navigate(['/income']);
   }
 }

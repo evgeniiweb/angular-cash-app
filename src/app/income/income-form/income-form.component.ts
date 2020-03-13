@@ -6,8 +6,8 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Income } from '../income.interface';
+import {FormBuilder, Validators} from '@angular/forms';
+import {Income} from '../income.interface';
 
 @Component({
   selector: 'app-income-form',
@@ -18,8 +18,8 @@ export class IncomeFormComponent implements OnChanges {
   @Input() income: Income;
   @Output() updateEvent = new EventEmitter<Income>();
 
-  private categories = ['food', 'education', 'transport']; // Todo: replace to settings service
-  private priorities = ['low', 'medium', 'high']; // Todo: replace to settings service
+  private categories = ['food', 'education', 'transport'];
+  private priorities = ['low', 'medium', 'high'];
 
   private incomeForm = this.fb.group({
     category: ['', Validators.required],
@@ -28,7 +28,8 @@ export class IncomeFormComponent implements OnChanges {
     comment: ['']
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.income && changes.income.currentValue) {
@@ -38,7 +39,7 @@ export class IncomeFormComponent implements OnChanges {
         priority,
         comment
       } = changes.income.currentValue;
-      this.incomeForm.patchValue({ category, amount, priority, comment });
+      this.incomeForm.patchValue({category, amount, priority, comment});
     }
   }
 
