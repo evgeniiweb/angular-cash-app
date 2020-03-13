@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IncomeService } from '../income.service';
+import { IncomeStoreService } from '../income-store.service';
 import { Income } from '../income.interface';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./income-create.component.scss']
 })
 export class IncomeCreateComponent {
-  constructor(private router: Router, private incomeService: IncomeService) {}
+  constructor(private router: Router, private incomeService: IncomeStoreService) {}
 
   onCreate(income: Income) {
     this.incomeService
-      .create(income)
+      .createIncome(income)
       .subscribe(() => this.router.navigate(['/income']));
   }
 }

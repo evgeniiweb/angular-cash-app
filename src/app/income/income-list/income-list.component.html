@@ -23,9 +23,17 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
       <a mat-icon-button
+         (click)="incomeDetails(element.id)">
+        <mat-icon>details</mat-icon>
+      </a>
+      <a mat-icon-button
          (click)="incomeEdit(element.id)">
         <mat-icon>edit</mat-icon>
       </a>
+      <button mat-icon-button
+         (click)="incomeDelete(element.id)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

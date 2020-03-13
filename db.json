@@ -1,76 +1,28 @@
 {
   "income": [
     {
-      "category": "products",
-      "amount": "111",
-      "priority": "high",
-      "comment": "Some short comment. Did I write this?",
-      "date": "Oct 2",
+      "category": "education",
+      "amount": 123,
+      "priority": "low",
+      "comment": "123",
+      "date": "2020-03-08T12:53:50.817Z",
       "id": 1
     },
     {
       "category": "education",
-      "amount": 555,
+      "amount": 111,
       "priority": "medium",
-      "comment": "Test 777",
-      "date": "2020-03-01T08:34:27.817Z",
+      "comment": "new comment",
+      "date": "2020-03-13T08:30:26.832Z",
       "id": 2
     },
     {
-      "category": "food",
-      "amount": 222,
-      "priority": "low",
-      "comment": "some food",
-      "date": "2020-03-01T08:36:38.202Z",
+      "category": "education",
+      "amount": 777,
+      "priority": "high",
+      "comment": "New comment 111",
+      "date": "2020-03-13T08:30:30.434Z",
       "id": 3
-    },
-    {
-      "category": "food",
-      "amount": 1,
-      "priority": "low",
-      "comment": "qqq",
-      "date": "2020-03-01T08:36:56.006Z",
-      "id": 4
-    },
-    {
-      "category": "education",
-      "amount": 11,
-      "priority": "medium",
-      "comment": "sss",
-      "date": "2020-03-01T10:19:35.376Z",
-      "id": 5
-    },
-    {
-      "category": "food",
-      "amount": 1111,
-      "priority": "low",
-      "comment": "qqq1",
-      "date": "2020-03-01T10:36:06.394Z",
-      "id": 6
-    },
-    {
-      "category": "food",
-      "amount": 1,
-      "priority": "low",
-      "comment": "AAA",
-      "date": "2020-03-01T10:36:24.833Z",
-      "id": 7
-    },
-    {
-      "category": "education",
-      "amount": 321,
-      "priority": "medium",
-      "comment": "test test",
-      "date": "2020-03-01T14:09:23.110Z",
-      "id": 8
-    },
-    {
-      "category": "food",
-      "amount": 1,
-      "priority": "low",
-      "comment": "1",
-      "date": "2020-03-01T14:37:31.640Z",
-      "id": 9
     }
   ]
 }

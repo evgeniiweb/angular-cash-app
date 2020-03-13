@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IncomeListComponent } from './income-list/income-list.component';
 import { IncomeCreateComponent } from './income-create/income-create.component';
 import {IncomeComponent} from './income.component';
-import {IncomeDetailComponent} from './income-detail/income-detail.component';
+import {IncomeUpdateComponent} from './income-update/income-update.component';
+import {IncomeDetailsComponent} from './income-details/income-details.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path: '', redirectTo: 'list', pathMatch: 'full'},
       {path: 'list', component: IncomeListComponent },
       {path: 'create', component: IncomeCreateComponent},
-      {path: ':id', component: IncomeDetailComponent}
+      {path: ':id/edit', component: IncomeUpdateComponent},
+      {path: ':id', component: IncomeDetailsComponent}
     ]
   },
 ];

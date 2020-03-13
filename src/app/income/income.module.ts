@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { IncomeRoutingModule } from './income-routing.module';
 import { IncomeComponent } from './income.component';
-import { IncomeDetailComponent } from './income-detail/income-detail.component';
+import { IncomeUpdateComponent } from './income-update/income-update.component';
 import { IncomeListComponent } from './income-list/income-list.component';
 import { IncomeCreateComponent } from './income-create/income-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,16 +15,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { IncomeFormComponent } from './income-form/income-form.component';
-import { IncomeService } from './income.service';
+import { IncomeStoreService } from './income-store.service';
 import { HttpClientModule } from '@angular/common/http';
+import { IncomeDetailsComponent } from './income-details/income-details.component';
+import {IncomeApiService} from './income-api.service';
 
 @NgModule({
   declarations: [
     IncomeComponent,
-    IncomeDetailComponent,
+    IncomeUpdateComponent,
     IncomeListComponent,
     IncomeCreateComponent,
-    IncomeFormComponent
+    IncomeFormComponent,
+    IncomeDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatTableModule
   ],
-  providers: [IncomeService],
+  providers: [
+    IncomeApiService,
+    IncomeStoreService
+  ],
   bootstrap: [IncomeComponent]
 })
 export class IncomeModule {}

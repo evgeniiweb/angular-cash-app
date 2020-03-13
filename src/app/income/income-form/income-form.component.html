@@ -9,7 +9,6 @@
       </mat-select>
     </mat-form-field>
   </section>
-
   <section>
     <mat-form-field>
       <mat-label>Amount</mat-label>
@@ -17,7 +16,6 @@
       <span matSuffix>$</span>
     </mat-form-field>
   </section>
-
   <section>
     <mat-form-field>
       <mat-label>Priority</mat-label>
@@ -28,14 +26,12 @@
       </mat-select>
     </mat-form-field>
   </section>
-
   <section>
     <mat-form-field>
       <mat-label>Comment</mat-label>
       <textarea formControlName="comment" matInput></textarea>
     </mat-form-field>
   </section>
-
   <button
     type="submit"
     [disabled]="!incomeForm.valid"

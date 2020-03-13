@@ -48,7 +48,7 @@ export class IncomeFormComponent implements OnChanges {
     }
 
     const income: Income = {
-      ...this.income,
+      ...(this.income || {}),
       category: this.incomeForm.value.category,
       amount: this.incomeForm.value.amount,
       priority: this.incomeForm.value.priority,
