@@ -25,14 +25,3 @@ app-root {
 .mat-drawer-content {
   padding: 16px;
 }
-
-.mat-list-item {
-  &.active {
-    background-color: #cccccc;
-  }
-
-  &.inactive {
-    opacity: .3;
-    pointer-events: none;
-  }
-}
