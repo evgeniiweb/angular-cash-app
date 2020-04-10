@@ -1,8 +1,8 @@
 export interface Income {
   id?: number;
+  name?: number;
   category: string;
   amount: string;
-  priority: string;
   comment?: string;
   date: Date;
 }

@@ -1,4 +1,27 @@
-<div *ngIf="income$ | async as income">
-  <h4>Comment</h4>
-  <p>{{income.comment}}</p>
-</div>
+<ng-container *ngIf="income$ | async as income">
+  <mat-card-title>Income by {{income.date | date : 'medium'}}</mat-card-title>
+
+  <mat-card-content>
+    <section class="info">
+      <article class="info-item">
+        <h4 class="info-title">Category:</h4>
+        <p class="info-text">{{income.category}}</p>
+      </article>
+
+      <article class="info-item">
+        <h4 class="info-title">Amount:</h4>
+        <p class="info-text">{{income.amount}}</p>
+      </article>
+
+      <article class="info-item">
+        <h4 class="info-title">Comment:</h4>
+        <p class="info-text">{{income.comment}}</p>
+      </article>
+    </section>
+
+    <button routerLink="/income/list"
+            mat-stroked-button
+            color="primary">Back
+    </button>
+  </mat-card-content>
+</ng-container>

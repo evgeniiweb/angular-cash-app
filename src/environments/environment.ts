@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  server: 'http://localhost:3000'
+  firebaseUrl: 'https://angular-cash-app.firebaseio.com/',
+  apiKey: 'AIzaSyD7EsBx1Szv1Bk4b9914CiBYBNGW9Yix5s'
 };
 
 /*

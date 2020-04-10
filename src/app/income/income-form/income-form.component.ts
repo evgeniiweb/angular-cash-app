@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Income} from '../income.interface';
 
@@ -18,13 +11,11 @@ export class IncomeFormComponent implements OnChanges {
   @Input() income: Income;
   @Output() updateEvent = new EventEmitter<Income>();
 
-  private categories = ['food', 'education', 'transport'];
-  private priorities = ['low', 'medium', 'high'];
+  private categories = ['salary', 'donation', 'side job'];
 
   private incomeForm = this.fb.group({
     category: ['', Validators.required],
     amount: ['', Validators.required],
-    priority: ['', Validators.required],
     comment: ['']
   });
 
@@ -36,10 +27,9 @@ export class IncomeFormComponent implements OnChanges {
       const {
         category,
         amount,
-        priority,
         comment
       } = changes.income.currentValue;
-      this.incomeForm.patchValue({category, amount, priority, comment});
+      this.incomeForm.patchValue({category, amount, comment});
     }
   }
 
@@ -52,10 +42,10 @@ export class IncomeFormComponent implements OnChanges {
       ...(this.income || {}),
       category: this.incomeForm.value.category,
       amount: this.incomeForm.value.amount,
-      priority: this.incomeForm.value.priority,
       comment: this.incomeForm.value.comment,
       date: new Date()
     };
+
     this.updateEvent.emit(income);
   }
 }

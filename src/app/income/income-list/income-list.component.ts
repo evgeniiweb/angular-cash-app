@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {IncomeStore} from '../income-store';
+import {IncomeService} from '../income-service';
 import {Income} from '../income.interface';
 
 @Component({
@@ -15,16 +15,15 @@ export class IncomeListComponent {
     'position',
     'category',
     'amount',
-    'priority',
     'date',
     'actions'
   ];
 
   constructor(
     private router: Router,
-    private store: IncomeStore
+    private incomeService: IncomeService
   ) {
-    this.income$ = store.getAllIncome();
+    this.income$ = incomeService.getAllIncome();
   }
 
   incomeDetails(id: number) {
@@ -36,6 +35,6 @@ export class IncomeListComponent {
   }
 
   async incomeDelete(id: number) {
-    await this.store.deleteIncome(id);
+    await this.incomeService.deleteIncome(id);
   }
 }

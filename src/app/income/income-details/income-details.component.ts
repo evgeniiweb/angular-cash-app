@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
-import {IncomeStore} from '../income-store';
+import {IncomeService} from '../income-service';
 
 @Component({
   selector: 'app-income-details',
@@ -11,13 +11,13 @@ import {IncomeStore} from '../income-store';
 export class IncomeDetailsComponent {
   income$ = this.route.paramMap.pipe(
     map((params: Params) => params.get('id')),
-    switchMap(id => this.store.getIncome(id))
+    switchMap(id => this.incomeService.getIncome(id))
   );
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private store: IncomeStore
+    private incomeService: IncomeService
   ) {
   }
 }

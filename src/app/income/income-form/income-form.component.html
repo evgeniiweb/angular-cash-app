@@ -3,41 +3,40 @@
     <mat-form-field>
       <mat-label>Category</mat-label>
       <mat-select formControlName="category">
-        <mat-option *ngFor="let category of categories" [value]="category">
+        <mat-option *ngFor="let category of categories"
+                    [value]="category">
           {{ category | titlecase }}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </section>
+
   <section>
     <mat-form-field>
       <mat-label>Amount</mat-label>
-      <input formControlName="amount" type="number" min="0" matInput/>
+      <input formControlName="amount"
+             type="number" min="0"
+             matInput/>
       <span matSuffix>$</span>
     </mat-form-field>
   </section>
-  <section>
-    <mat-form-field>
-      <mat-label>Priority</mat-label>
-      <mat-select formControlName="priority">
-        <mat-option *ngFor="let priority of priorities" [value]="priority">
-          {{ priority | titlecase }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </section>
+
   <section>
     <mat-form-field>
       <mat-label>Comment</mat-label>
-      <textarea formControlName="comment" matInput></textarea>
+      <textarea formControlName="comment"
+                matInput></textarea>
     </mat-form-field>
   </section>
-  <button
-    type="submit"
-    [disabled]="!incomeForm.valid"
-    color="primary"
-    mat-flat-button
-  >
-    Save
+
+  <button type="submit"
+          [disabled]="!incomeForm.valid"
+          color="primary"
+          mat-flat-button>Save
+  </button>
+
+  <button routerLink="/income/list"
+          mat-stroked-button
+          color="primary">Back
   </button>
 </form>

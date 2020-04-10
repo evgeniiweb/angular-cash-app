@@ -1,10 +1,20 @@
 <mat-toolbar>
-  <button mat-icon-button
+  <button *ngIf="auth.isAuthenticated()"
+          mat-icon-button
           (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
+
   {{title}}
+
+  <button *ngIf="auth.isAuthenticated()"
+          mat-icon-button
+          (click)="logout()"
+          style="margin-left: auto;">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
+
 <mat-drawer-container hasBackdrop="true">
   <mat-drawer #drawer mode="push">
     <mat-nav-list>
@@ -13,13 +23,16 @@
          routerLinkActive="active"
          (click)="drawer.close()"
          mat-list-item>
+
         <mat-icon matListIcon>{{link.icon}}</mat-icon>
+
         <p matLine>
           <span>{{link.title}}</span>
         </p>
       </a>
     </mat-nav-list>
   </mat-drawer>
+
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>

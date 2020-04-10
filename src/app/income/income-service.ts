@@ -8,7 +8,7 @@ import {Income} from './income.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class IncomeStore {
+export class IncomeService {
   private readonly refresh$ = new BehaviorSubject(null);
 
   constructor(

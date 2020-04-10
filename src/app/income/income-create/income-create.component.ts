@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {IncomeStore} from '../income-store';
+import {IncomeService} from '../income-service';
 import {Income} from '../income.interface';
 
 @Component({
@@ -11,12 +11,12 @@ import {Income} from '../income.interface';
 export class IncomeCreateComponent {
   constructor(
     private router: Router,
-    private store: IncomeStore
+    private incomeService: IncomeService
   ) {
   }
 
   async onCreate(income: Income) {
-    await this.store.createIncome(income);
+    await this.incomeService.createIncome(income);
     this.router.navigate(['/income']);
   }
 }

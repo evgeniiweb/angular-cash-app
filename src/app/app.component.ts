@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {MatDrawer} from '@angular/material';
+import {Router} from '@angular/router';
+import {AuthService} from './auth.service';
 
 interface NavigationLink {
   route: string;
@@ -12,15 +15,25 @@ interface NavigationLink {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('drawer', {static: true}) drawer: MatDrawer;
+
   title = 'Check your cash';
 
   links: NavigationLink[] = [
     {route: '/dashboard', icon: 'dashboard', title: 'Dashboard'},
     {route: '/income', icon: 'attach_money', title: 'Income'},
-    // {route: '/expense/list', icon: 'money_off', title: 'Expense'}, Todo: add expense component
     {route: '/about', icon: 'info', title: 'About'}
   ];
 
-  constructor() {
+  constructor(
+    private router: Router,
+    public auth: AuthService
+  ) {
+  }
+
+  logout() {
+    this.drawer.close();
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

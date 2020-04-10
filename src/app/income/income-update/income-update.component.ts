@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {map, pluck, switchMap} from 'rxjs/operators';
-import {IncomeStore} from '../income-store';
+import {IncomeService} from '../income-service';
 import {Income} from '../income.interface';
 
 @Component({
@@ -12,7 +12,7 @@ import {Income} from '../income.interface';
 export class IncomeUpdateComponent {
   income$ = this.route.paramMap.pipe(
     map((params: Params) => params.get('id')),
-    switchMap(id => this.store.getIncome(id))
+    switchMap(id => this.incomeService.getIncome(id))
   );
 
   incomeDate$ = this.income$.pipe(
@@ -22,12 +22,12 @@ export class IncomeUpdateComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private store: IncomeStore
+    private incomeService: IncomeService
   ) {
   }
 
   async onUpdate(income: Income) {
-    await this.store.updateIncome(income);
+    await this.incomeService.updateIncome(income);
     this.router.navigate(['income/list']);
   }
 }
